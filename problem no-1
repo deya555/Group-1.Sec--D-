@@ -1,1 +1,49 @@
-# Group-1.Sec--D-
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+int main() {
+    double d, theta_m;
+    int m;
+    
+    cout << "Enter the order of the maximum (m): ";
+    cin >> m;
+    cout << "Enter the spacing between the slits (d) in meters: ";
+    cin >> d;
+    cout << "Enter the angle of the maximum (theta_m) in degrees: ";
+    cin >> theta_m;
+
+    double theta_rad = theta_m * M_PI / 180.0;
+
+    double lambda = (d * sin(theta_rad)) / m;
+
+    cout << "Numeric value of the wavelength: " << lambda << " meters" << endl;
+
+    string color;
+    if (lambda >= 380e-9 && lambda < 450e-9) {
+        color = "Violet";
+    } 
+    else if (lambda >= 450e-9 && lambda < 495e-9) {
+        color = "Blue";
+    } 
+    else if (lambda >= 495e-9 && lambda < 570e-9) {
+        color = "Green";
+    } 
+    else if (lambda >= 570e-9 && lambda < 590e-9) {
+        color = "Yellow";
+    } 
+    else if (lambda >= 590e-9 && lambda < 620e-9) {
+        color = "Orange";
+    } 
+    else if (lambda >= 620e-9 && lambda <= 750e-9) {
+        color = "Red";
+    } 
+    else {
+        color = "Unknown";
+    }
+    cout << "Color of the light: " << color << endl;
+
+    return 0;
+}
